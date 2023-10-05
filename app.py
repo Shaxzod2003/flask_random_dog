@@ -20,7 +20,7 @@ def main():
         body=request.get_json()
         update=Update.de_json(body,bot)
         dp.add_handler(CommandHandler(["start", "boshlash"],handlers.start))
-        dp.add_handler(MessageHandler(Filters.text("🦮Dog"),handlers.photo_dog))
+        dp.add_handler(MessageHandler(filters=Filters.text("🦮Dog"),callback=handlers.photo_dog))
         dp.process_update(update)
 
         return {"message","ok"}
